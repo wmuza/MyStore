@@ -9,7 +9,7 @@ import { Product } from '../models/product';
 })
 export class ShoppingCartComponent {
   products = this.cartService.getProducts();
-  cartTotal = this.cartService.getCartTotal()
+  cartTotal: string | number = this.cartService.getCartTotal()
 
   constructor(
     private cartService: CartService

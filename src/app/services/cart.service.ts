@@ -19,10 +19,13 @@ export class CartService {
   }
 
   getCartTotal(){
-    const prices = this.products.map(value => value.price );
-    if (prices.length) {
-      let total: number = prices.reduce( (a, b) => a + b);
-      return total.toFixed(2)
+    const prices = this.products.map(value => value.total );
+    if (prices.length && prices != undefined) {
+      let total = prices.reduce( (a, b) => a! + b!);
+      if (total) {
+        return total.toFixed(2)
+      }
+      return 0
     }
     return 0
   }

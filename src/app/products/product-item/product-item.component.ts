@@ -16,15 +16,15 @@ export class ProductItemComponent {
     private cartService: CartService
   ) { }
 
-  addToCart(product: Product) {
+  addToCart(p: Product) {
     // Update the quantity before adding to cart
-    product.quantity = this.productQuantity
+    p.quantity = this.productQuantity
 
     // Update the total price based on quantity
-    product.price = this.productQuantity * product.price
+    p.total = this.productQuantity * p.price
 
     // Now add the product to cart
-    this.cartService.addToCart(product);
-    window.alert(`Your ${this.productQuantity} product(s) ${product.name} has been added to the cart!`);
+    this.cartService.addToCart(p);
+    window.alert(`Your ${this.productQuantity} product(s) ${p.name} has been added to the cart!`);
   }
 }
