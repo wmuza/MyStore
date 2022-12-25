@@ -16,10 +16,10 @@
       <p class="text-sm font-medium text-gray-900">${{product.price}}</p>
     </div>
   </div>
-  <div class="flex mt-3">
-    <form>
+  <div class="mt-3">
+    <form class="flex">
       <div class="flex-1">
-        <select id="quantity" name="quantity" autocomplete="quantity-name" class="mt-1 block w-1/2 rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+        <select id="quantity" name="quantity" autocomplete="quantity-name" class="block w-1/2 rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
           <option *ngFor="let q of quantity">{{q}}</option>
         </select>
       </div>
