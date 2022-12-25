@@ -6,7 +6,7 @@
     <div class="mt-4 flex justify-between">
       <div>
         <h3 class="text-sm text-gray-700">
-          <a href="#">
+          <a routerLink="/product/{{product.id}}">
             <span aria-hidden="true" class="absolute inset-0"></span>
             {{product.name}}
           </a>
@@ -17,13 +17,15 @@
     </div>
   </div>
   <div class="flex mt-3">
-    <div class="flex-1">
-      <select id="quantity" name="quantity" autocomplete="quantity-name" class="mt-1 block w-1/2 rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
-        <option *ngFor="let q of quantity">{{q}}</option>
-      </select>
-    </div>
-    <div class="flex-none">
-      <button class="mr-10 flex-none h-10 w-full px-6 font-semibold rounded-md bg-black text-white">Add to Cart</button>
-    </div>
+    <form>
+      <div class="flex-1">
+        <select id="quantity" name="quantity" autocomplete="quantity-name" class="mt-1 block w-1/2 rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+          <option *ngFor="let q of quantity">{{q}}</option>
+        </select>
+      </div>
+      <div class="flex-none">
+        <button type="submit" class="mr-10 flex-none h-10 w-full px-6 font-semibold rounded-md bg-black text-white">Add to Cart</button>
+      </div>
+    </form>
   </div>
 </div>

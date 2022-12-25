@@ -10,7 +10,7 @@ import { OrderConfirmationComponent } from './order-confirmation/order-confirmat
 const routes: Routes = [
   { title: 'Home', path: '', component: ProductListComponent },
   { title: 'Products', path: 'products', component: ProductListComponent },
-  { title: 'Product Item', path: 'product/:id', component: ProductDetailsComponent },
+  { title: 'Product Item', path: 'product/:productId', component: ProductDetailsComponent },
   { title: 'Cart', path: 'cart', component: ShoppingCartComponent },
   { title: 'Checkout', path: 'checkout', component: CheckoutFormComponent },
   { title: 'Order Confirmation', path: 'order-confirmation', component: OrderConfirmationComponent },
