@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Cart } from 'src/app/models/cart';
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -16,7 +17,7 @@ export class ProductItemComponent {
     private cartService: CartService
   ) { }
 
-  addToCart(p: Product) {
+  addToCart(p: Cart) {
     // Update the quantity before adding to cart
     p.quantity = this.productQuantity
 

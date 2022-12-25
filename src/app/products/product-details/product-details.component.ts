@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Product } from 'src/app/models/product';
+import { Cart } from 'src/app/models/cart';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -45,7 +46,7 @@ export class ProductDetailsComponent implements OnInit {
     }
   }
 
-  addToCart(p: Product) {
+  addToCart(p: Cart) {
     // Update the quantity before adding to cart
     p.quantity = this.productQuantity
 
