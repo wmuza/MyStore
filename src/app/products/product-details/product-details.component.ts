@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Product } from 'src/app/models/product';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -10,14 +11,16 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductDetailsComponent implements OnInit {
   id: number = 1
-  product: Product | undefined
+  product: Product = new Product;
   products: Product[] = []
   quantity: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  productQuantity = this.quantity[0]
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private productService: ProductsService
+    private productService: ProductsService,
+    private cartService: CartService
   ) { }
 
   ngOnInit() {
@@ -30,12 +33,24 @@ export class ProductDetailsComponent implements OnInit {
   displayProduct(){
     // First get the product id from the current route.
     const routeParams = this.route.snapshot.paramMap;
-    const productIdFromRoute = Number(routeParams.get('productId'));
+    const productIdFromRoute = Number(routeParams.get('productId')) as number;
 
     // Find the product that correspond with the id provided in route.
-    this.product = this.products.find(product => product.id === productIdFromRoute);
+    let p = this.products.find(product => product.id === productIdFromRoute)
+    if(p){
+      this.product = p
+    } else {
+      //If product not found go to 404 page
+      this.router.navigate(['/page-not-found']);
+    }
+  }
 
-    //If product not found go to 404 page
-    this.product ? '' : this.router.navigate(['/page-not-found']);
+  addToCart(product: Product) {
+    // Update the quantity before adding to cart
+    product.quantity = this.productQuantity
+
+    // Now add the product to cart
+    this.cartService.addToCart(product);
+    window.alert(`Your ${this.productQuantity} product(s) ${product.name} has been added to the cart!`);
   }
 }

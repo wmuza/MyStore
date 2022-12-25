@@ -4,6 +4,7 @@ export class Product {
   price: number
   url: string
   description: string
+  quantity?: number
 
   constructor(){
     this.id = 1
@@ -11,5 +12,6 @@ export class Product {
     this.price = 1
     this.url = ''
     this.description = ''
+    this.quantity = 1
   }
 }
