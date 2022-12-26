@@ -19,8 +19,8 @@ cd MyStore
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
 
-## Set up the dependencies
-
+## Setup the dependencies
+Run the below command to setup the dependencies
 ```bash
 npm install
 ```
