@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { Cart } from '../models/cart';
+import { Order } from '../models/order';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -19,4 +20,5 @@ export class ShoppingCartComponent {
     this.cartService.removeFromCart(product)
     this.cartTotal = this.cartService.getCartTotal()
   }
+
 }
