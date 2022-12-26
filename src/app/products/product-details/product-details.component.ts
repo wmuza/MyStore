@@ -55,6 +55,5 @@ export class ProductDetailsComponent implements OnInit {
 
     // Now add the product to cart
     this.cartService.addToCart(p);
-    window.alert(`Your ${this.productQuantity} product(s) ${p.name} has been added to the cart!`);
   }
 }

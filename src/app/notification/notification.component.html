@@ -1,0 +1,14 @@
+<div *ngIf="product_added || product_removed" class="sticky float-right z-40 top-5 right-5 -mb-20 max-w-xs bg-white border rounded-md shadow-lg dark:bg-gray-800 dark:border-gray-700" role="alert">
+  <div class="flex p-4">
+    <div class="flex-shrink-0">
+      <div class="h-10 w-10 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+        <img src="{{product.url}}" alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." class="h-full w-full object-cover object-center">
+      </div>
+    </div>
+    <div class="ml-3">
+      <p class="text-sm text-white">
+        Product <strong>{{ product.name }}</strong> have been {{product_removed ? 'removed from': 'added to'}} cart
+      </p>
+    </div>
+  </div>
+</div>

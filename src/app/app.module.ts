@@ -11,6 +11,7 @@ import { CheckoutFormComponent } from './checkout-form/checkout-form.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     CheckoutFormComponent,
     OrderConfirmationComponent,
     NavBarComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NotificationComponent
   ],
   imports: [
     AppRoutingModule,

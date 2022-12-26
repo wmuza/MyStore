@@ -8,16 +8,20 @@ import { BehaviorSubject } from 'rxjs';
 export class CartService {
   products: Cart[] = []
   cart_items = new BehaviorSubject<Cart[]>([]);
+  cart_add = new BehaviorSubject<Cart[]>([]);
+  cart_remove = new BehaviorSubject<Cart[]>([]);
 
   addToCart(product: Cart) {
     this.products.push(product);
     this.cart_items.next(this.products);
+    this.cart_add.next([product]);
   }
 
   removeFromCart(product: Cart) {
     const index = this.products.indexOf(product);
     this.products.splice(index, 1);
     this.cart_items.next(this.products);
+    this.cart_remove.next([product]);
   }
 
   getCartTotal(){
@@ -44,5 +48,13 @@ export class CartService {
 
   cartItems() {
     return this.cart_items.asObservable();
+  }
+
+  cartAddItem() {
+    return this.cart_add.asObservable();
+  }
+
+  cartRemoveItem() {
+    return this.cart_remove.asObservable();
   }
 }
