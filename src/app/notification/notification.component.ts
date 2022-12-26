@@ -36,7 +36,7 @@ export class NotificationComponent {
     setTimeout (() => {
       this.product_added = false
       this.product_removed = false
-    }, 5000);
+    }, 3000);
   }
 
 }

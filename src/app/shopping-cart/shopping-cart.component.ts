@@ -21,4 +21,9 @@ export class ShoppingCartComponent {
     this.cartTotal = this.cartService.getCartTotal()
   }
 
+  quantityChanged(data: number){
+    this.cartService.recalculateCart(this.products)
+    this.cartTotal = this.cartService.getCartTotal()
+  }
+
 }

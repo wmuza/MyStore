@@ -11,7 +11,7 @@
           <div class="mt-8">
             <div class="flow-root">
               <ul role="list" class="-my-6 divide-y divide-gray-200">
-                <li class="flex py-6" *ngFor="let product of products">
+                <li class="flex py-6" *ngFor="let product of products; let index = index;">
                   <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                     <img src="{{product.url}}" alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." class="h-full w-full object-cover object-center">
                   </div>
@@ -27,8 +27,31 @@
                       <p class="mt-1 text-sm text-gray-500">{{product.description}}</p>
                     </div>
                     <div class="flex flex-1 items-end justify-between text-sm">
-                      <p class="text-gray-800">Qty {{product.quantity}}</p>
+                      <form #form="ngForm">
+                        <div class="text-gray-800">Qty
+                          <input
+                            type="number"
+                            min="1"
+                            step="1"
+                            required
+                            name="quantity{{ index }}"
+                            [(ngModel)]="products[index].quantity"
+                            (ngModelChange)="quantityChanged($event)"
+                            class="w-1/4 text-center rounded-md border border-gray-300 bg-white"
+                            #quantity="ngModel"
+                          >
 
+                          <!-- Full name Error handling -->
+                          <div *ngIf="quantity.invalid && quantity.dirty" class="text-red-400 text-sm">
+                            <div *ngIf="quantity.errors?.['required']">
+                              Quantity is required
+                            </div>
+                            <div *ngIf="quantity.errors?.['min']">
+                              Quantity must start at 1.
+                            </div>
+                          </div>
+                        </div>
+                      </form>
                       <div class="flex">
                         <button (click)="removeFromCart(product)" class="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
                       </div>

@@ -46,6 +46,10 @@ export class CartService {
     return this.products;
   }
 
+  recalculateCart(products: Cart[]){
+    products.map(p => { p.total = p.quantity ? p.quantity * p.price : 0; return p })
+  }
+
   cartItems() {
     return this.cart_items.asObservable();
   }
